@@ -1,5 +1,16 @@
 import React from "react";
+import "./ListView.css";
 
 export default props => {
-    return <h1>Lista de pokemons</h1>;
+    return (
+        <div className="card--list--area">
+            <div className="card ">
+                <div className="card--name">{props.pokename} </div>
+                <div className="card--img">
+                    <img src={props.pokeimg} alt="" />
+                </div>
+                <div className="card--id">#{props.pokeid}</div>
+            </div>
+        </div>
+    );
 };

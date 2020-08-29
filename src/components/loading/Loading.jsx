@@ -5,7 +5,7 @@ import Loadingimg from "../../assets/poke.gif";
 export default props => {
     return (
         <div>
-            <img src={Loadingimg} alt="" />
+            <div className='loading--message'>Loading</div>
         </div>
     );
 };

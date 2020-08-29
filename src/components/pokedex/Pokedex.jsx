@@ -4,6 +4,7 @@ import Api from "../../services/api";
 import Logotipo from "../../assets/logopokemon.png";
 import Search from "../search/Search";
 import LoadingScreen from "../loading/Loading";
+import ListView from "../listview/ListView";
 
 export default props => {
     // Hooks
@@ -32,9 +33,8 @@ export default props => {
     // Pesquisa pokemon por nome
     const searchByName = async name => {
         let res = await Api.get(`pokemon/${name}`);
-        console.log(res.data) 
+        console.log(res.data);
     };
-
 
     return (
         <div>
@@ -42,7 +42,24 @@ export default props => {
                 <img src={Logotipo} alt="Logo da pokedex" />
                 <Search />
             </div>
+
+            <section className="lists">
+                {pokemonList.map((item, key) => (
+                    <ListView
+                        key={key}
+                        pokename={item.name}
+                        pokeurl={`https://pokeapi.co/api/v2/pokemon/${item.id}`}
+                        pokeimg={item.image}
+                        pokeid={item.id}
+                    />
+                ))}
+            </section>
+
             {pokemonList.length <= 0 && <LoadingScreen />}
+            <footer>
+                Made with ❤ by Pablo Abreu Todos os direitos reservados a
+                Pokemon Company
+            </footer>
         </div>
     );
 };
