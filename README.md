@@ -25,6 +25,4 @@ Base: https://pokeapi.co/api/v2/
 ## Bibliotecas
 
 -   React
--   Redux
 -   Axios
--   Styled Components
