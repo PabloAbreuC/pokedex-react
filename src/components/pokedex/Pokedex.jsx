@@ -12,29 +12,32 @@ export default props => {
 
     // São executados assim que o componente é carregado
     useEffect(() => {
-        const loadAll = async () => {
+        const loadAll = async size => {
+            // Array que irá connter os pokemons
+            let arrayPokemons = [];
+
             // Recuperando os pokemons com axios via get
-            let res = await Api.get(`/pokemon?limit=150`);
+            let res = await Api.get(`/pokemon?limit=${size}`);
 
-            // Percorrendo o resultado com map e salva os dados escolhidos em uma variável
-            const allPokemons = res.data.results.map((item, index) => ({
-                name: item.name,
-                id: index + 1,
-                image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                    index + 1
-                }.png`
-            }));
+            // Fazendo novas requisições e salvando os dados em um array
+            for (var i = 1; i < size + 1; i++) {
+                await Api.get(`/pokemon/${i}`).then(resp => {
+                    arrayPokemons.push({
+                        id: resp.data.id,
+                        name: resp.data.name,
+                        image: resp.data.sprites.front_default,
+                        type: resp.data.types
+                    });
+                });
+            }
 
-            setPokemonList(allPokemons);
+            // Alterando o statehook
+            setPokemonList(arrayPokemons);
         };
-        loadAll();
+        loadAll(150);
     }, []);
 
-    // Pesquisa pokemon por nome
-    const searchByName = async name => {
-        let res = await Api.get(`pokemon/${name}`);
-        console.log(res.data);
-    };
+    console.log(pokemonList);
 
     return (
         <div>
@@ -44,18 +47,9 @@ export default props => {
             </div>
 
             <section className="lists">
-                {pokemonList.map((item, key) => (
-                    <ListView
-                        key={key}
-                        pokename={item.name}
-                        pokeurl={`https://pokeapi.co/api/v2/pokemon/${item.id}`}
-                        pokeimg={item.image}
-                        pokeid={item.id}
-                    />
-                ))}
+                <ListView pokemonlist={pokemonList} />
             </section>
 
-            {pokemonList.length <= 0 && <LoadingScreen />}
             <footer>
                 Made with ❤ by Pablo Abreu Todos os direitos reservados a
                 Pokemon Company
