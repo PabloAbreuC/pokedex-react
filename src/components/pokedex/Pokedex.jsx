@@ -16,9 +16,6 @@ export default props => {
             // Array que irá connter os pokemons
             let arrayPokemons = [];
 
-            // Recuperando os pokemons com axios via get
-            let res = await Api.get(`/pokemon?limit=${size}`);
-
             // Fazendo novas requisições e salvando os dados em um array
             for (var i = 1; i < size + 1; i++) {
                 await Api.get(`/pokemon/${i}`).then(resp => {
@@ -36,8 +33,6 @@ export default props => {
         };
         loadAll(150);
     }, []);
-
-    console.log(pokemonList);
 
     return (
         <div>

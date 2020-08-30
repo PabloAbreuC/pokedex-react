@@ -22,6 +22,74 @@
 
 .card--types--area {
     margin-top: 10px;
+    text-align: left;
 }
 
+.card--type {
+    display: inline-block;
+    margin: 0 2px 0 2px;
+    padding: 1px;
+    border-radius: 5px;
+}
 
+.normal {
+    background-color: #bebeaf;
+}
+.poison {
+    background-color: #aa5da2;
+}
+.psychic {
+    background-color: #fa66b4;
+}
+.grass {
+    background-color: #8cd751;
+}
+.ground {
+    background-color: #edcc56;
+}
+
+.ice {
+    background-color: #96f1ff;
+}
+
+.fire {
+    background-color: #fa5643;
+}
+
+.rock {
+    background-color: #cdbc71;
+}
+.dragon {
+    background-color: #8975ff;
+}
+.water {
+    background-color: #56aeff;
+}
+
+.bug {
+    background-color: #c2d21f;
+}
+.dark {
+    background-color: #8e6956;
+}
+
+.fighting {
+    background-color: #a85643;
+}
+.ghost {
+    background-color: #7a75d7;
+}
+.steel {
+    background-color: #c4c2d9;
+}
+
+.flying {
+    background-color: #7ba3ff;
+}
+.electric {
+    background-color: #fde53c;
+}
+
+.fairy {
+    background-color: #f9adff;
+}
