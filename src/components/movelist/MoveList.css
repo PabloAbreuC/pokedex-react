@@ -1,0 +1,13 @@
+.move {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.move--left,
+.move--right {
+    background-color: #23abfd;
+    color: #fff;
+    margin: 0 3px 0 3px;
+    padding: 0 25px 0 25px;
+}

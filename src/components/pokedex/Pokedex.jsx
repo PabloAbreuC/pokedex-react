@@ -5,34 +5,36 @@ import Logotipo from "../../assets/logopokemon.png";
 import Search from "../search/Search";
 import LoadingScreen from "../loading/Loading";
 import ListView from "../listview/ListView";
+import MoveList from "../movelist/MoveList";
+import PokeBox from "../PokeBox/PokeBox";
 
 export default props => {
     // Hooks
     const [pokemonList, setPokemonList] = useState([]);
+    const [offset, setOffset] = useState(0);
 
     // São executados assim que o componente é carregado
     useEffect(() => {
-        const loadAll = async size => {
-            // Array que irá connter os pokemons
-            let arrayPokemons = [];
-
-            // Fazendo novas requisições e salvando os dados em um array
-            for (var i = 1; i < size + 1; i++) {
-                await Api.get(`/pokemon/${i}`).then(resp => {
-                    arrayPokemons.push({
-                        id: resp.data.id,
-                        name: resp.data.name,
-                        image: resp.data.sprites.front_default,
-                        type: resp.data.types
-                    });
-                });
-            }
+        const loadAll = async () => {
+            const res = await Api.get(`/pokemon/?limit=8&offset=${offset}`);
 
             // Alterando o statehook
-            setPokemonList(arrayPokemons);
+            setPokemonList(res.data.results);
         };
-        loadAll(150);
-    }, []);
+        loadAll();
+    }, [offset]);
+
+    const handleNext = async () => {
+        setOffset(offset + 8);
+        console.log(pokemonList);
+    };
+
+    const handlePrev = async () => {
+        if (offset > 0) {
+            setOffset(offset - 8);
+        }
+        console.log(pokemonList);
+    };
 
     return (
         <div>
@@ -43,6 +45,14 @@ export default props => {
 
             <section className="lists">
                 <ListView pokemonlist={pokemonList} />
+                {pokemonList.map(pokemon => (
+                    <PokeBox
+                        key={pokemon.id}
+                        name={pokemon.name}
+                        url={pokemon.url}
+                    />
+                ))}
+                <MoveList next={handleNext} prev={handlePrev} />
             </section>
 
             <footer>
