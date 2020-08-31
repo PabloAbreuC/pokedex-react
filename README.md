@@ -8,8 +8,7 @@ A aplicação possui as seguintes features
 
 -   Pesquisa de pokemon por nome
 -   Listar todos os pokemons
--   Mostrar informações de um pokemon específico pelo nome
--   Listar todos os pokemons de determinado tipo
+-   Mostrar informações de um pokemon específico 
 
 ## API
 
@@ -20,9 +19,9 @@ Base: https://pokeapi.co/api/v2/
 | ------------------------------------------ | ---------------------------------------------------------------------- |
 | pokemon/{name}                             | Retorna as informações de um pokemon pelo nome                         |
 | pokemon?limit={quantidade}&offset={inicio} | Retorna as informações da {quantidade} de pokemons partido do {inicio} |
-| type/{tipo}                                | Retorna todos os pokemons de um detminado {tipo}                       |
 
 ## Bibliotecas
 
 -   React
+-   React Router
 -   Axios

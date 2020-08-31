@@ -7,3 +7,12 @@ body {
 }
 
 
+.modal--warning--text {
+    color: #fff;
+    
+}
+.modal--warning--button {
+    background-color: #23ABFD;
+    color: #fff;
+    padding: 10px 25px;
+}

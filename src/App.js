@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
 
-// Components
+
+// Main component
 import Pokedex from "./components/pokedex/Pokedex";
+// Componente com info
 
 function App() {
     return (

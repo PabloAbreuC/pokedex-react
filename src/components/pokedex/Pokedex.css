@@ -1,6 +1,9 @@
 .pokedex img {
     width: 35%;
 }
+.pokedex img:hover {
+    cursor: pointer;
+}
 
 .lists {
     margin: auto;
@@ -10,3 +13,4 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+

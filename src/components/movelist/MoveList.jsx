@@ -4,12 +4,13 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import "./MoveList.css";
 
 export default props => {
+    const { prev, next } = props
     return (
         <div className="move">
-            <div onClick={props.prev} className="move--left">
+            <div onClick={prev} className="move--left">
                 <NavigateBeforeIcon style={{ fontSize: 30 }} />
             </div>
-            <div onClick={props.next} className="move--right">
+            <div onClick={next} className="move--right">
                 <NavigateNextIcon style={{ fontSize: 30 }} />
             </div>
         </div>
