@@ -76,11 +76,15 @@ export default (props) => {
         <img onClick={reloadPage} src={Logotipo} alt="Logo da pokedex" />
         <PokeSearch search={handleSearch} />
       </div>
-      <section className="lists">
-        {pokemonList.map((pokemon, index) => (
-          <PokeBox key={index} name={pokemon.name} url={pokemon.url} />
-        ))}
-        <MoveList next={handleNext} prev={handlePrev} />
+      <section className="lists--area">
+        <div class="list">
+          {pokemonList.map((pokemon, index) => (
+            <PokeBox key={index} name={pokemon.name} url={pokemon.url} />
+          ))}
+        </div>
+        <div>
+          <MoveList next={handleNext} prev={handlePrev} />
+        </div>
       </section>
 
       <Modal style={customStyles} isOpen={modalIsOpen}>

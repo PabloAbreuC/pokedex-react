@@ -25,3 +25,7 @@ Base: https://pokeapi.co/api/v2/
 -   React
 -   React Router
 -   Axios
+-   React Modal
+
+## Imagem do App
+![Imagem do app](assets/demonstration.gif)
