@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Search.css";
+import "./PokeSearch.css";
 
 export default props => {
     // Hooks do componente
